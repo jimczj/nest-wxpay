@@ -168,7 +168,7 @@ export interface GoodsDetail {
 export interface OrderDetail {
   cost_price?: number
   invoice_id?: string
-  goods_detail: GoodsDetail
+  goods_detail?: GoodsDetail[]
 }
 
 export interface StoreInfo {
@@ -203,9 +203,9 @@ export interface JsapiOrder {
   settle_info?: SettleInfo
 }
 
-export type H5Order = Omit<JsapiOrder, 'payer'> & { detail: Partial<OrderDetail>, scene_info: CommReqSceneInfo }
+export type H5Order = Omit<JsapiOrder, 'payer'> & { detail?: Partial<OrderDetail>, scene_info: CommReqSceneInfo }
 
-export type NativeOrder = Omit<JsapiOrder, 'payer'> & { detail: Partial<OrderDetail> }
+export type NativeOrder = Omit<JsapiOrder, 'payer'> & { detail?: Partial<OrderDetail> }
 
 export type AppOrder = JsapiOrder
 
